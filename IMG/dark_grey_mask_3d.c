@@ -20,15 +20,7 @@
 **********************************************************************
 */
 
-#include <stdlib.h>
-
-#include "GUI.h"
-
-#ifndef GUI_CONST_STORAGE
-  #define GUI_CONST_STORAGE const
-#endif
-
-extern GUI_CONST_STORAGE GUI_BITMAP bmdark_grey_mask_3d;
+#include "img.h"
 
 /*********************************************************************
 *

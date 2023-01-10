@@ -30,6 +30,9 @@ $(SEARCH_cy-mbedtls-acceleration)/COMPONENT_CAT1/mbedtls_MXCRYPTO/ecp_curves_alt
 $(SEARCH_optiga-trust-m)/pal/pal_crypt_openssl.c
 $(SEARCH_optiga-trust-m)/pal/pal_crypt_wolfssl.c
 
+# Suppress this file so we can patch it to compile using MTB 3.0
+$(SEARCH_optiga-trust-m)/pal/COMPONENT_PSOC6_FREERTOS/COMPONENT_CM4/pal_i2c.c
+
 # Not required executeable for tools
 $(SEARCH_optiga-trust-m)/examples/tools/protected_update_data_set
 $(SEARCH_optiga-trust-m)/examples/mbedtls_port/example/mbedtls_trustm_ecc_extended_example.c

@@ -58,10 +58,7 @@ extern "C"
 
 //#define DEFAULT_GPS_COORDS        "0119.378145,N,10352.147261,E"
 //#define DEFAULT_GPS_COORDS        "0119.330060,N,10352.147261,E"
-//Marina Bay Sands
 #define DEFAULT_GPS_COORDS        "0117.008333,N,10351.658333,E"
-
-
 
 #define GPS_INFO_MAX_LEN              31
 #define GPS_INFO_MIN_LEN              20

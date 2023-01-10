@@ -415,30 +415,6 @@ wiced_bt_gatt_status_t app_gatts_req_write_handler(uint16_t conn_id,
 
     switch (p_data->handle)
     {
-    /* Write request for the Connection Select characteristic. */
-    case HDLC_CONNECTION_SERVICE_CONNECTION_SELECT_VALUE:
-        memset(app_connection_service_connection_select, 0, app_connection_service_connection_select_len);
-        DEBUG_ASSERT(p_data->val_len == app_connection_service_connection_select_len);
-
-        memcpy(app_connection_service_connection_select, p_attr, p_data->val_len);
-        puAttribute->cur_len = p_data->val_len;
-        printf("Connection Select: 0x%02x\n", app_connection_service_connection_select[0]);
-
-        //xTaskNotify(g_curl_task_handle, NOTIF_GATT_DB_CONNECTION_SELECT, eSetValueWithOverwrite);
-        break;
-
-    /* Write request for the Task Select characteristic. */
-    case HDLC_CONNECTION_SERVICE_TASK_SELECT_VALUE:
-        memset(app_connection_service_task_select, 0, app_connection_service_task_select_len);
-        DEBUG_ASSERT(p_data->val_len == app_connection_service_task_select_len);
-
-        memcpy(app_connection_service_task_select, p_attr, p_data->val_len);
-        puAttribute->cur_len = p_data->val_len;
-        printf("Task Select: 0x%02x\n", app_connection_service_task_select[0]);
-
-        //xTaskNotify(g_curl_task_handle, NOTIF_GATT_DB_TASK_SELECT, eSetValueWithOverwrite);
-        break;
-
     /* Write request for the Read Write Item characteristic. */
     case HDLC_DATA_STORE_SERVICE_READ_WRITE_ITEM_VALUE:
         memset(app_data_store_service_read_write_item, 0, app_data_store_service_read_write_item_len);
@@ -449,34 +425,6 @@ wiced_bt_gatt_status_t app_gatts_req_write_handler(uint16_t conn_id,
         printf("RW Item: 0x%02x\n", app_data_store_service_read_write_item[0]);
 
         xTaskNotify(g_data_store_task_handle, NOTIF_GATT_DB_RW_ITEM, eSetValueWithOverwrite);
-        break;
-
-
-    /* Notification for connection characteristic. If enabled, notification can
-        * be sent to the client if the connection was successful or not
-        */
-    case HDLD_CONNECTION_SERVICE_IPV4_ADDRESS_CLIENT_CHAR_CONFIG:
-        app_connection_service_ipv4_address_client_char_config[0] = p_attr[0];
-        app_connection_service_ipv4_address_client_char_config[1] = p_attr[1];
-        printf("IPv4 Address (Notify): 0x%02x\n", app_connection_service_ipv4_address_client_char_config[0]);
-        break;
-
-    case HDLD_CONNECTION_SERVICE_CONNECTION_SELECT_CLIENT_CHAR_CONFIG:
-        app_connection_service_connection_select_client_char_config[0] = p_attr[0];
-        app_connection_service_connection_select_client_char_config[1] = p_attr[1];
-        printf("Connection Select (Notify): 0x%02x\n", app_connection_service_connection_select_client_char_config[0]);
-        break;
-
-    case HDLD_CONNECTION_SERVICE_TASK_SELECT_CLIENT_CHAR_CONFIG:
-        app_connection_service_task_select_client_char_config[0] = p_attr[0];
-        app_connection_service_task_select_client_char_config[1] = p_attr[1];
-        printf("Task Select (Notify): 0x%02x\n", app_connection_service_task_select_client_char_config[0]);
-        break;
-
-    case HDLD_CONNECTION_SERVICE_TASK_OUTCOME_CLIENT_CHAR_CONFIG:
-        app_connection_service_task_outcome_client_char_config[0] = p_attr[0];
-        app_connection_service_task_outcome_client_char_config[1] = p_attr[1];
-        printf("Task Outcome (Notify): 0x%02x\n", app_connection_service_task_outcome_client_char_config[0]);
         break;
 
     /* Notification for Read Write Item characteristic. If enabled, notification can
@@ -492,7 +440,6 @@ wiced_bt_gatt_status_t app_gatts_req_write_handler(uint16_t conn_id,
         printf("Write GATT Handle not found\n");
         result = WICED_BT_GATT_INVALID_HANDLE;
         break;
-
     }
 
     return result;

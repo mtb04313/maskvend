@@ -225,7 +225,7 @@ void start_others(void)
     DEBUG_ASSERT(result == CY_RSLT_SUCCESS);
 #endif
 
-#if (FEATURE_PPP == ENABLE_FEATURE) || (FEATURE_BLE_MODEM == ENABLE_FEATURE)
+#if (FEATURE_PPP == ENABLE_FEATURE)
     // modem is required by PPP or BLE feature
     cy_modem_init();
 #endif

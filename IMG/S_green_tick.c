@@ -20,15 +20,7 @@
 **********************************************************************
 */
 
-#include <stdlib.h>
-
-#include "GUI.h"
-
-#ifndef GUI_CONST_STORAGE
-  #define GUI_CONST_STORAGE const
-#endif
-
-extern GUI_CONST_STORAGE GUI_BITMAP bmS_green_tick;
+#include "img.h"
 
 static GUI_CONST_STORAGE unsigned char _acS_green_tick[] = {
   /* RLE: 019 Pixels @ 000,000 */ 19, 0xFD, 0xFE, 0xFD, 0x00, 

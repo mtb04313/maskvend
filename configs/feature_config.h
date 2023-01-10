@@ -54,21 +54,9 @@ extern "C"
 #define DISABLE_FEATURE                 2
 
 // core features
-#if 1
-  // enable Cellular; disable WIFI
-  #define FEATURE_PPP                     ENABLE_FEATURE
-  #define FEATURE_WIFI                    DISABLE_FEATURE
-#else
-  // enable WIFI; disable Cellular
-  #define FEATURE_PPP                     DISABLE_FEATURE
-  #define FEATURE_WIFI                    ENABLE_FEATURE
-#endif
-
-#if 1
+#define FEATURE_PPP                     ENABLE_FEATURE
+#define FEATURE_WIFI                    DISABLE_FEATURE
 #define FEATURE_CONSOLE                 ENABLE_FEATURE
-#else
-#define FEATURE_CONSOLE                 DISABLE_FEATURE
-#endif
 
 #if defined (TARGET_APP_CY8CEVAL_062S2_LAI_4373M2) // CY8CEVAL Eval Kit has on-board Trust-M
 #define FEATURE_TRUST_M                 ENABLE_FEATURE
@@ -76,34 +64,28 @@ extern "C"
 #define FEATURE_TRUST_M                 DISABLE_FEATURE
 #endif
 
-#define FEATURE_ESIM_LPA_MENU           DISABLE_FEATURE
+#define FEATURE_ESIM_LPA_MENU           DISABLE_FEATURE // unused option
 #define FEATURE_APPS                    ENABLE_FEATURE
 #define FEATURE_MQTT                    ENABLE_FEATURE
-#define FEATURE_BLE_MODEM               ENABLE_FEATURE
 #define FEATURE_FLASH_EEPROM            ENABLE_FEATURE
-
-// eSIM LPA menu features (only takes effect if FEATURE_ESIM_LPA_MENU is enabled)
-#define FEATURE_ADD_PROFILE             ENABLE_FEATURE
-#define FEATURE_ADVANCED_OPTIONS        ENABLE_FEATURE
-#define FEATURE_SWITCH_PROFILE          ENABLE_FEATURE
-#define FEATURE_DELETE_PROFILE          ENABLE_FEATURE
-#define FEATURE_SET_PROFILE_NICKNAME    ENABLE_FEATURE
-
-// misc features
 #define FEATURE_PLATFORM_TIME           ENABLE_FEATURE
 #define FEATURE_DATA_STORE              ENABLE_FEATURE
 #define FEATURE_GUI_MASK_KIOSK          ENABLE_FEATURE
 #define FEATURE_GUI_MARKETING_SCREEN    DISABLE_FEATURE
 #define FEATURE_CAPSENSE                ENABLE_FEATURE
-
-// BLE features only takes effect if FEATURE_BLE_APP is enabled
 #define FEATURE_BLE_APP                 ENABLE_FEATURE
-#define FEATURE_BLE_DATA_STORE          ENABLE_FEATURE
+
+// eSIM LPA menu features (only takes effect if FEATURE_ESIM_LPA_MENU is enabled)
+#define FEATURE_ADD_PROFILE             DISABLE_FEATURE // unused option
+#define FEATURE_ADVANCED_OPTIONS        DISABLE_FEATURE // unused option
+#define FEATURE_SWITCH_PROFILE          DISABLE_FEATURE // unused option
+#define FEATURE_DELETE_PROFILE          DISABLE_FEATURE // unused option
+#define FEATURE_SET_PROFILE_NICKNAME    DISABLE_FEATURE // unused option
 
 // unit tests
-#define FEATURE_UNIT_TEST_CURL          DISABLE_FEATURE
-#define FEATURE_UNIT_TEST_ESIM_LPA      DISABLE_FEATURE
-#define FEATURE_UNIT_TEST_RTOS          DISABLE_FEATURE
+#define FEATURE_UNIT_TEST_CURL          DISABLE_FEATURE // unused option
+#define FEATURE_UNIT_TEST_ESIM_LPA      DISABLE_FEATURE // unused option
+#define FEATURE_UNIT_TEST_RTOS          DISABLE_FEATURE // unused option
 
 #ifdef __cplusplus
 }

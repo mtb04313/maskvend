@@ -20,15 +20,7 @@
 **********************************************************************
 */
 
-#include <stdlib.h>
-
-#include "GUI.h"
-
-#ifndef GUI_CONST_STORAGE
-  #define GUI_CONST_STORAGE const
-#endif
-
-extern GUI_CONST_STORAGE GUI_BITMAP bmS_no_tick;
+#include "img.h"
 
 static GUI_CONST_STORAGE unsigned char _acS_no_tick[] = {
   /* RLE: 2916 Pixels @ 000,000 */ 254, 0xFF, 0xFF, 0xFF, 0x00, 254, 0xFF, 0xFF, 0xFF, 0x00, 254, 0xFF, 0xFF, 0xFF, 0x00, 254, 0xFF, 0xFF, 0xFF, 0x00, 254, 0xFF, 0xFF, 0xFF, 0x00, 254, 0xFF, 0xFF, 0xFF, 0x00, 254, 0xFF, 0xFF, 0xFF, 0x00, 
